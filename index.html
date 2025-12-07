@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHONE CITY</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="mobilecity-header">
+        <div class="header-top">
+            <div class="header-left-group" style="display: flex; align-items: center; gap: 20px;">
+    
+    <div class="logo">
+        <a href="index.html"><i class="fa-solid fa-chart-simple"></i> PHONE CITY</a>
+    </div>
+
+    <div class="dropdown-menu-wrapper">
+        <div class="menu-toggle-btn">
+            <i class="fa-solid fa-bars"></i> DANH MỤC
+        </div>
+
+        <ul class="main-menu-list">
+            
+            <li class="menu-item-has-children">
+                <a href="#" onclick="filterByType('mobile', null)">
+                    <i class="fa-solid fa-mobile-screen"></i> Điện thoại
+                    <i class="fa-solid fa-chevron-right arrow-icon"></i>
+                </a>
+                
+                <ul class="sub-menu">
+                    <li><a href="#" onclick="filterBrandFromMenu('iphone')">iPhone</a></li>
+                    <li><a href="#" onclick="filterBrandFromMenu('samsung')">Samsung</a></li>
+                    <li><a href="#" onclick="filterBrandFromMenu('xiaomi')">Xiaomi</a></li>
+                    <li><a href="#" onclick="filterBrandFromMenu('realme')">Realme</a></li>
+                </ul>
+            </li>
+
+            <li class="menu-item-has-children">
+                <a href="#" onclick="filterByType('tablet', null)">
+                    <i class="fa-solid fa-tablet"></i> Máy tính bảng
+                    <i class="fa-solid fa-chevron-right arrow-icon"></i>
+                </a>
+                <ul class="sub-menu">
+                    <li><a href="#" onclick="filterBrandFromMenu('ipad')">iPad</a></li>
+                    <li><a href="#" onclick="filterBrandFromMenu('samsung')">Samsung Tab</a></li>
+                    <li><a href="#" onclick="filterBrandFromMenu('xiaomi')">Xiaomi Pad</a></li>
+                </ul>
+            </li>
+
+           
+        </ul>
+    </div>
+</div>
+            <div class="search-box">
+    <input type="text" id="search-input" placeholder="Tìm kiếm sản phẩm ..." onkeyup="handleEnter(event)">
+    
+    <button onclick="searchProducts()"><i class="fa-solid fa-magnifying-glass"></i></button>
+</div>
+				<div class="header-actions">
+					<a href="giohang.html" class="cart-btn" id="header-cart-btn" style="text-decoration: none; color: inherit;">
+						<i class="fa-solid fa-cart-shopping"></i> <span id="cart-count">(0)</span>
+					</a>
+				</div>
+        </div>
+        
+       <nav class="main-nav">
+            <a href="#" onclick="filterByType('mobile', this)">
+                <i class="fa-solid fa-mobile-screen"></i> Điện thoại
+            </a>
+            
+            <a href="#" onclick="filterByType('tablet', this)">
+                <i class="fa-solid fa-tablet"></i> Máy tính bảng
+            </a>
+        </nav>
+    </header>
+
+    
+    <section class="container">
+        
+        <div class="tool-bar">
+            <div class="brand-select-wrapper">
+                <select id="category-select">
+                    <option value="all">Tất cả hãng</option>
+                    <option value="iphone">iPhone</option>
+                    <option value="samsung">Samsung</option>
+                    <option value="xiaomi">Xiaomi</option>
+                    <option value="realme">Realme</option>
+                </select>
+            </div>
+
+           
+
+            <div class="sort-wrapper">
+                <select id="sort-select">
+                    <option value="default">Sắp xếp: Mặc định</option>
+                    <option value="asc">Giá: Thấp đến Cao</option>
+                    <option value="desc">Giá: Cao đến Thấp</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="product-grid" id="product-list"></div>
+
+        <div class="pagination-container">
+            <div class="pagination">
+                <a href="#">&laquo;</a>
+                <a href="#" class="active">1</a>
+                <a href="#">2</a>
+                <a href="#">&raquo;</a>
+            </div>
+        </div>
+    </section>
+
+       <section class="contact-section">
+        <h2>Liên hệ</h2>
+        <div class="contact-form-wrapper">
+            <form id="contact-form" onsubmit="submitContact(event)">
+                
+                <div class="form-group">
+                    <label>Tên *</label>
+                    <input type="text" required placeholder="Nhập tên của bạn">
+                </div>
+                <div class="form-group">
+                    <label>E-mail *</label>
+                    <input type="email" required placeholder="Nhập email">
+                </div>
+                <div class="form-group">
+                    <label>Thông điệp *</label>
+                    <textarea rows="5" required placeholder="Nội dung cần hỗ trợ..."></textarea>
+                </div>
+                <div class="form-btn-row">
+                    <button type="submit">Gửi</button>
+                </div>
+            </form>
+        </div>
+    </section>
+    <section class="promo-footer">
+        <h3>Khách hàng đăng ký để nhận các khuyến mãi độc quyền.</h3>
+        <div class="social-icons">
+            <i class="fa-brands fa-facebook-f"></i>
+            <i class="fa-solid fa-x"></i>
+            <i class="fa-brands fa-instagram"></i>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>Địa chỉ</h4>
+                <p>910/30 Tân kỳ tân quý, Bình Tân</p>
+                <p>Hồ Chí Minh</p>
+            </div>
+            <div class="footer-col">
+                <h4>Điện thoại:</h4>
+                <p class="highlight-blue">+8414929430</p>
+                
+                <h4 style="margin-top: 15px;">E-mail</h4>
+                <p class="highlight-blue">nguyenkhanhduy84113@gmail.com</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
